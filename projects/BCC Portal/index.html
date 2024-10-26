@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="frameworks/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/fixscreen.css">
+    <title>Buenavista Community College Portal</title>
+
+    <script src="files/Jhon_Anthony_Catamco_Pano.js"></script>
+    <script src="files/Edcel_Mahusay_Sanchez.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="page1" class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <h2>BCC Portal</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="idNumber">ID Number:</label>
+                        <input type="text" class="form-control" id="idNumber" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="page2" class="container" style="display:none;">
+        <h2>Buenavista Community College</h2>
+        <div id="studentInfo" class="row">
+            <div class="col-12">
+                <p>Name: <span id="studentName" class="fw-bold"></span></p>
+                <p>Course: <span id="studentCourse" class="fw-bold"></span></p>
+                <p>ID Number: <span id="studentId" class="fw-bold"></span></p>
+            </div>
+        </div>
+        <h3 style="font-family: 'Times New Roman', serif;">Enrolled Information</h3>
+        <div id="enrolledInfo" class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <div class="row">
+                        <div class="col-3"><strong>School Year</strong></div>
+                        <div class="col-3"><strong>Semester</strong></div>
+                        <div class="col-3"><strong>Status</strong></div>
+                        <div class="col-3"><strong>Action</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="enrollNewBtn" class="btn btn-info">Enroll New</button>
+        <button id="logoutBtn" class="btn btn-danger">Log Out</button>
+    </div>
+
+    <div id="page3" class="container" style="display:none;">
+        <h2>Semester Grade</h2>
+        <div id="gradeInfo" class="row"></div>
+        <button id="backBtn" class="btn btn-secondary">Go Back</button>
+        <button id="printBtn" class="btn btn-info">Print</button>
+    </div>
+
+    <!-- BACK BUTTON -->
+    <button title="Go back to Storage Page" id="backToMain" onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;" style="position:fixed; top: 0; left:0; cursor:move; z-index: 999;"><img src="../../../assets/img/logo.png" class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+
+    <script src="frameworks/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

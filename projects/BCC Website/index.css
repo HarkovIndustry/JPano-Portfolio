@@ -1,0 +1,86 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.header-image {
+    width: 100vw;
+    max-height: 400px;
+}
+
+.glassmorphism {
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: #28a745;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.3s;
+    color: white;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.carousel {
+    max-width: 50vw;
+    margin: auto;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 576px) {
+    .carousel {
+        max-width: 80vw;
+    }
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.shadow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer,
+footer p {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.modal-img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    text-align: justify;
+}
+
+.ff-tnr {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.ff-c {
+    font-family: cursive;
+}

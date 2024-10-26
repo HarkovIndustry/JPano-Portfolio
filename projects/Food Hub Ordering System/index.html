@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="extension/bootstrap.min.css">
+    <link rel="stylesheet" href="extension/index.css">
+    <title>FOODHUB Ordering System</title>
+    <link rel="stylesheet" href="../../../assets/css/fixscreen.css">
+    <script src="extension/sweetalert2.min.js"></script>
+</head>
+
+<body>
+    <div id="topContainer"></div>
+
+    <button class="btn btn-dark rounded-circle" style="position:fixed; top:10px; right:10px; opacity:0.5; z-index: 999;"
+        onclick="location.href='#bottomContainer'">↓</button>
+    <button class="btn btn-dark rounded-circle"
+        style="position:fixed; bottom:10px; right:10px; opacity:0.5; z-index: 999;"
+        onclick="location.href='#topContainer'">↑</button>
+
+    <div class="container">
+        <h1>Welcome to FOODHUB</h1>
+        <p class="intro-text">Your one-stop solution for delicious food delivery. Choose your favorites and enjoy!</p>
+        <select id="category-selector" class="form-select" aria-label="Category Selector">
+            <option value="all">All</option>
+            <option value="pasta">Pasta</option>
+            <option value="fish">Fish</option>
+            <option value="pork">Pork</option>
+            <option value="snack">Snack</option>
+            <option value="combo">Combo</option>
+            <option value="chicken">Chicken</option>
+        </select>
+        <div id="food-cards" class="row"></div>
+        <button class="btn btn-primary checkout-btn" id="checkout-btn">Check Out</button>
+    </div>
+
+    <!-- BACK BUTTON -->
+    <button title="Go back to Storage Page" id="backToMain" class="btn btn-link"
+        onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;"
+        style="position:fixed; bottom:0; left:0; cursor:move;"><img src="../../../assets/img/logo.png"
+            class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+
+    <div id="bottomContainer"></div>
+    <script src="extension/bootstrap.min.js"></script>
+    <script>
+        const address = "Z5 963 Tungasan II, Lagtang, Talisay City, Cebu Phillipines (6045)";
+        const foods = [
+            { name: "Fettuccine Pasta", categories: ["pasta"], image: "images/Fettuccine Pasta.png", price: 75.49 },
+            { name: "Lasagna", categories: ["pasta"], image: "images/Lasagna.png", price: 68.25 },
+            { name: "Ditalini Pasta", categories: ["pasta"], image: "images/Ditalini Pasta.png", price: 81.2 },
+            { name: "Spaghetti Pasta", categories: ["pasta"], image: "images/Spaghetti Pasta.png", price: 45.6 },
+            { name: "Cream Dory Fish Fillet", categories: ["fish"], image: "images/Cream Dory Fish Fillet.png", price: 82.41 },
+            { name: "Grilled Milkfish", categories: ["fish"], image: "images/Grilled Milkfish.png", price: 428.18 },
+            { name: "Pork Liempo", categories: ["pork"], image: "images/Pork Liempo.png", price: 329.22 },
+            { name: "Burger Overload Combo", categories: ["snack", "combo"], image: "images/Burger Overload Combo.png", price: 127.39 },
+            { name: "Chicken with Rice", categories: ["chicken", "combo"], image: "images/Chicken with Rice.png", price: 119.11 }
+        ];
+    </script>
+    <script src="extension/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Billing System</title>
+    <link rel="stylesheet" href="frameworks/bootstrap.min.css">
+    <link rel="stylesheet" href="frameworks/fixscreen.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --background-color: #f8f9fa;
+            --text-color: #343a40;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .form-control {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        #billingDetails,
+        #paymentForm {
+            margin-top: 20px;
+            border: 1px solid var(--secondary-color);
+            padding: 15px;
+            border-radius: 5px;
+            background-color: white;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="billingContainer">
+        <h1>Water Billing System</h1>
+        <div class="form-group">
+            <label for="consumerId">Enter Consumer ID:</label>
+            <input type="text" class="form-control" id="consumerId" placeholder="Consumer ID" oninput="checkInput()">
+            <button class="btn btn-primary mt-2" onclick="displayBillingDetails()">Get Billing Details</button>
+        </div>
+        <div id="billingDetails" class="mt-4"></div>
+        <div id="paymentForm" class="mt-4"></div>
+    </div>
+
+    <!-- BACK BUTTON -->
+    <button title="Go back to Storage Page" id="backToMain" class="btn btn-link"
+        onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;"
+        style="position:fixed; bottom:0; left:0; cursor:move;"><img src="../../../assets/img/logo.png"
+            class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+
+    <script src="frameworks/bootstrap.min.js"></script>
+    <script>
+        const users = [
+            { name: "John Doe", id: "12332", address: "street" },
+            { name: "Jane Smith", id: "12333", address: "avenue" },
+            { name: "Alice Johnson", id: "12334", address: "boulevard" }
+        ];
+        const pricePerHour = 14.5;
+        let totalBill = 0;
+
+        function checkInput() {
+            const consumerId = document.getElementById('consumerId').value;
+            const billingDetailsDiv = document.getElementById('billingDetails');
+            if (consumerId) {
+                billingDetailsDiv.style.display = 'block';
+            } else {
+                billingDetailsDiv.style.display = 'none';
+            }
+        }
+
+        function displayBillingDetails() {
+            const consumerId = document.getElementById('consumerId').value;
+            const user = users.find(u => u.id === consumerId);
+            const billingDetailsDiv = document.getElementById('billingDetails');
+
+            if (user) {
+                const waterConsumed = Math.floor(Math.random() * 100) + 1; // Random water consumed between 1 and 100
+                const dueDate = new Date();
+                dueDate.setDate(dueDate.getDate() + 30); // Due date 30 days from now
+                totalBill = (waterConsumed * pricePerHour).toFixed(2);
+
+                billingDetailsDiv.innerHTML = `
+                    <h3>Billing Details for ${user.name}</h3>
+                    <p>Consumer ID: ${user.id}</p>
+                    <p>Address: ${user.address}</p>
+                    <p>Water Consumed: ${waterConsumed} liters</p>
+                    <p>Due Date: ${dueDate.toLocaleDateString()}</p>
+                    <p>Total Bill: $${totalBill}</p>
+                    <button class="btn btn-success mt-2" onclick="showPaymentForm()">PAY</button>
+                    <button class="btn btn-secondary mt-2" onclick="goBack()">BACK</button>
+                `;
+            } else {
+                billingDetailsDiv.innerHTML = `<p class="text-danger">Consumer ID not found.</p>`;
+            }
+        }
+
+        function showPaymentForm() {
+            const paymentFormDiv = document.getElementById('paymentForm');
+            paymentFormDiv.style.display = 'block';
+            paymentFormDiv.innerHTML = `
+                <h3>Payment Form</h3>
+                <label for="bankName">Bank Name:</label>
+                <input type="text" class="form-control" id="bankName" oninput="checkPaymentInput()">
+                <label for="bankId">Bank ID:</label>
+                <input type="text" class="form-control" id="bankId" oninput="checkPaymentInput()">
+                <label for="amount">Amount:</label>
+                <input type="text" class="form-control" id="amount" value="$${totalBill}" readonly>
+                <button class="btn btn-success mt-2" id="proceedButton" onclick="payBill()" disabled>PROCEED</button>
+                <button class="btn btn-secondary mt-2" onclick="goBack()">BACK</button>
+            `;
+        }
+
+        function checkPaymentInput() {
+            const bankName = document.getElementById('bankName').value;
+            const bankId = document.getElementById('bankId').value;
+            const proceedButton = document.getElementById('proceedButton');
+            proceedButton.disabled = !(bankName && bankId);
+
+        }
+
+        function payBill() {
+            const paymentFormDiv = document.getElementById('paymentForm');
+            paymentFormDiv.innerHTML = `<p class="text-success">Payment Successful! Total Bill: $${totalBill}</p>`;
+        }
+
+        function goBack() {
+            document.getElementById('consumerId').value = '';
+            document.getElementById('billingDetails').innerHTML = '';
+            document.getElementById('billingDetails').style.display = 'none';
+            document.getElementById('paymentForm').innerHTML = '';
+            document.getElementById('paymentForm').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

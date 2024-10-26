@@ -1,0 +1,71 @@
+:root {
+    --background-gradient: linear-gradient(to right, #f8f9fa, #e9ecef);
+    --container-background: rgba(255, 255, 255, 0.9);
+    --green-color: #28a745;
+    --red-color: #dc3545;
+    --blue-color: #17a2b8;
+    --gray-color: #6c757d;
+    --text-color: #28a745;
+}
+
+body {
+    background: var(--background-gradient);
+    /*font-family: 'Times New Roman', serif;*/
+    backdrop-filter: blur(10px);
+}
+
+.container {
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: var(--container-background);
+}
+
+.passed {
+    color: var(--green-color);
+    font-weight: bold;
+}
+
+.failed {
+    color: var(--red-color);
+    font-weight: bold;
+}
+
+.incomplete {
+    color: orange;
+    font-weight: bold;
+}
+
+h2,
+h3 {
+    text-align: center;
+    color: var(--text-color);
+    /*font-family: 'Times New Roman', serif;*/
+}
+
+.btn {
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--green-color);
+    border-color: var(--green-color);
+}
+
+.btn-danger {
+    background-color: var(--red-color);
+    border-color: var(--red-color);
+}
+
+.btn-info {
+    background-color: var(--blue-color);
+    border-color: var(--blue-color);
+}
+
+.btn-secondary {
+    background-color: var(--gray-color);
+    border-color: var(--gray-color);
+}

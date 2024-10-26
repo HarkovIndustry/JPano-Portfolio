@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #343a40;
+}
+
+.card {
+    margin: 20px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    color: #6c757d;
+}

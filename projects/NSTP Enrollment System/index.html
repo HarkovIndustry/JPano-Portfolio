@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../assets/css/fixscreen.css">
+    <link rel="stylesheet" href="../../../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <title>NSTP Enrollment System</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 50px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .card {
+            margin: 20px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card input[type="checkbox"] {
+            display: none;
+        }
+
+        .card label {
+            cursor: pointer;
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .card input[type="checkbox"]:checked+label {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            font-weight: 900;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div class="welcome-section">
+        <h1>Welcome to NSTP Enrollment System</h1>
+        <button class="btn btn-primary" id="enrollButton">Enroll NSTP</button>
+    </div>
+
+    <div id="enrollmentSection" class="d-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="card">
+                        <input type="checkbox" id="selectROTC" name="subject" value="ROTC">
+                        <label for="selectROTC">
+                            <img src="rotc.png" class="card-img-top" alt="ROTC">
+                            <div class="card-body">
+                                <h5 class="card-title">ROTC</h5>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="card">
+                        <input type="checkbox" id="selectCWTS" name="subject" value="CWTS">
+                        <label for="selectCWTS">
+                            <img src="cwts.png" class="card-img-top" alt="CWTS">
+                            <div class="card-body">
+                                <h5 class="card-title">CWTS</h5>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="formSection" class="container mt-5">
+            <form id="enrollmentForm" class="bg-light p-4 rounded shadow">
+                <h2 class="text-center mb-4">Enrollment Form</h2>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" id="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact:</label>
+                    <input type="text" class="form-control" id="contact" placeholder="(+63) number" required>
+                </div>
+                <div class="form-group">
+                    <label for="school">School:</label>
+                    <input type="text" class="form-control" id="school" value="Buenavista Community College" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select class="form-control" id="year" required>
+                        <option value="" disabled selected>Select Year</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course:</label>
+                    <select class="form-control" id="course" required>
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="BSIT">BSIT</option>
+                        <option value="BSHM">BSHM</option>
+                        <option value="BSCrim">BSCrim</option>
+                        <option value="BSED">BSED</option>
+                        <option value="BEED">BEED</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bloodType">Blood Type:</label>
+                    <select class="form-control" id="bloodType" required>
+                        <option value="" disabled selected>Select Blood Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" class="form-control" id="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" class="form-control" id="weight" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-2">Enroll Now</button>
+            </form>
+        </div>
+
+    </div>
+
+   <!-- BACK BUTTON -->
+   <button title="Go back to Storage Page" id="backToMain" class="btn btn-link" onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;" style="position:fixed; bottom:0; left:0; cursor:move;"><img src="../../../assets/img/logo.png" class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+    
+   <script src="../../../assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- EXTERNAL Bootstrap JavaScript -->
+ 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('enrollButton').onclick = function () {
+            document.getElementById('enrollmentSection').classList.remove('d-none');
+        };
+
+        document.getElementById('enrollmentForm').onsubmit = function (event) {
+            event.preventDefault();
+            const subject = document.querySelector('input[name="subject"]:checked');
+            if (!subject) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Please select a subject.',
+                    icon: 'error',
+                    confirmButtonText: 'Okay'
+                });
+                return;
+            }
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const address = document.getElementById('address').value;
+            const gender = document.getElementById('gender').value;
+            const contact = document.getElementById('contact').value;
+            const school = document.getElementById('school').value;
+            const year = document.getElementById('year').value;
+            const course = document.getElementById('course').value;
+            const bloodType = document.getElementById('bloodType').value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            const platoons = ['Alpha', 'Bravo', 'Charlie', 'Delta', 'Echo', 'Foxtrot', 'Golf'];
+            const randomPlatoon = platoons[Math.floor(Math.random() * platoons.length)];
+            const info = `Name: [${name}]\nGender: [${gender}]\nSchool: [${school}]\nCourse: [${course}]\nYear: [${year}]\nSubject: [${subject.value}]\nPlatoon: [${randomPlatoon}]`;
+
+            Swal.fire({
+                title: 'Enrollment Details',
+                text: info,
+                icon: 'success',
+                showCloseButton: true,
+                confirmButtonText: 'Done',
+                footer: 'Take a screenshot for your information'
+            }).then(() => {
+                document.getElementById('enrollmentForm').reset();
+                document.querySelectorAll('input[name="subject"]').forEach(input => input.checked = false);
+            });
+        };
+    </script>
+</body>
+
+</html>

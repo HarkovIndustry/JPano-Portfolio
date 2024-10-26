@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Billing System - EMC Power</title>
+    <link rel="stylesheet" href="frameworks/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/fixscreen.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #ffcc00;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: green;
+        }
+
+        .navbar-nav .nav-link {
+            color: green;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: darkgreen;
+        }
+
+        .info {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            /* Added gap between info sections */
+            transform: scale(0.95);
+            border-radius: 15px;
+        }
+
+        .info:hover {
+            transform: scale(1.02);
+        }
+
+        .container {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .mt-4 {
+            margin-top: 80px;
+            /* Adjusted for sticky navbar */
+        }
+    </style>
+    <script>
+        const carouselData = [
+            "1.jpg"
+        ];
+
+        const cardData = [
+            { image: "1.jpg", title: "Marlyn Dela Torre", text: "CEO/Founder" },
+            { image: "2.jpg", title: "Ethylene Pojas", text: "CEO/Founder" }
+        ];
+    </script>
+</head>
+
+<body>
+    <div id="topArea"></div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#topArea">
+            <img src="images/logo.jpg" width="30" height="30" class="ms-1 d-inline-block align-top rounded-circle"
+                alt="">
+
+            <strong>EMC Power</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link ms-1" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link ms-1" href="#officals">Officials</a></li>
+                <li class="nav-item"><a class="nav-link ms-1" href="#contacts">Contact Us</a></li>
+            </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0 ms-1"
+                onclick="window.location.href='payment.html'">Payment</button>
+        </div>
+    </nav>
+
+    <div id="home"></div>
+    <div class="container mt-4">
+        <div class="carouselcontainer"></div>
+        <p class="text-center">Have the power to access and view your bills whenever you like with</p>
+        <h1 class="text-center">Welcome to EMC Power</h1>
+        <p class="text-center">empowering your world with sustainable green electricity solutions.</p>
+
+        <div class="row">
+            <div class="col-md-4 info p-2 text-center">
+                <img src="images/info1.jpg" alt="">
+                <h3>View and Pay Bills</h3>
+                <p>Access your bill and pay anytime, anywhere.</p>
+            </div>
+            <div class="col-md-4 info p-2 text-center">
+                <img src="images/info2.jpg" alt="">
+                <h3>Report an Outage</h3>
+                <p>Inform EMC when there is an outage in your area, and get updates on the time of restoration.</p>
+            </div>
+            <div class="col-md-4 info p-2 text-center">
+                <img src="images/info3.jpg" alt="">
+                <h3>Inquire, Request & Give Feedback</h3>
+                <p>Talk to us via email or chat us your concerns about your account.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="officals"></div>
+    <div class="container mt-4">
+        <h2 class="text-center">Board Members</h2>
+        <div class="cardcontainer"></div>
+    </div>
+
+    <div id="contacts"></div>
+    <div class="container mt-4">
+        <h2>Contact Us</h2>
+        <p>Email: info@emcpower.com</p>
+        <p>Phone: +1234567890</p>
+        <p>Address: 123 Power Lane, Energy City</p>
+    </div>
+
+    <script src="frameworks/bootstrap.min.js"></script>
+    <!-- BACK BUTTON -->
+    <button title="Go back to Storage Page" id="backToMain" class="btn btn-link" onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;" style="position:fixed; bottom:0; left:0; cursor:move;"><img src="../../../assets/img/logo.png" class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+    
+
+    <script src="dynamic.js"></script>
+</body>
+
+</html>

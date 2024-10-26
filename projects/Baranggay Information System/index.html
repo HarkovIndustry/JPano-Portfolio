@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Information System</title>
+    <link rel="stylesheet" href="frameworks/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fixscreen.css">
+    <script>
+        const carousel = [
+            "1.jpg", "2.jpg", "3.jpg",
+            "4.jpg", "5.jpg", "6.jpg", "7.jpg"
+        ];
+    </script>
+</head>
+
+<body>
+    <div id="mostTop"></div>
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#mostTop">Cambos-oc</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#mostTop" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#officialsLocator">Officials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutLocator">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicesLocator">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactLocator">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Welcome to Cambos-oc</h1>
+        <p>Your community, your voice.</p>
+    </div>
+
+    <div class="carouselcontainer container mt-2"></div>
+
+    <div id="officialsLocator"></div>
+    <div class="content-section" id="officials">
+        <h2>Officials</h2>
+        <p>Meet our dedicated officials who work tirelessly for the community.</p>
+        <ul>
+            <li>Mayor: John Doe</li>
+            <li>Vice Mayor: Jane Smith</li>
+            <li>Councilor: Mark Johnson</li>
+            <li>Councilor: Emily Davis</li>
+            <li>Secretary: Sarah Brown</li>
+            <li>Treasurer: Michael Green</li>
+        </ul>
+    </div>
+
+    <div id="aboutLocator"></div>
+    <div class="content-section" id="about">
+        <h2>About Us</h2>
+        <p>We are committed to serving our community with integrity and transparency. Our mission is to enhance the
+            quality of life for all residents through effective governance and community engagement.</p>
+    </div>
+
+    <div id="servicesLocator"></div>
+    <div class="content-section" id="services">
+        <h2>Our Services</h2>
+        <p>We offer a variety of services to assist our residents:</p>
+        <ul>
+            <li>Community Health Services</li>
+            <li>Public Safety Programs</li>
+            <li>Environmental Protection Initiatives</li>
+            <li>Educational Workshops</li>
+            <li>Disaster Preparedness Training</li>
+            <li>Senior Citizen Support Programs</li>
+        </ul>
+    </div>
+
+    <div id="contactLocator"></div>
+    <div class="content-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+        <p>Email: info@cambos-oc.gov</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Address: 123 Barangay St, City, Country</p>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="text-center p-3">
+            © 2023 Cambos-oc Barangay Information System
+        </div>
+    </footer>
+
+    <!-- BACK BUTTON -->
+    <button title="Go back to Storage Page" id="backToMain" class="btn btn-link"
+        onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;"
+        style="position:fixed; bottom:0; left:0; cursor:move;"><img src="../../../assets/img/logo.png"
+            class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+
+    <script src="carousel.js"></script>
+    <script src="frameworks/bootstrap.min.js"></script>
+</body>
+
+</html>

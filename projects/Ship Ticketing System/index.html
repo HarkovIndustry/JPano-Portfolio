@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Ticketing</title>
+    <link rel="stylesheet" href="../../../assets/css/fixscreen.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+        }
+
+        .form-container {
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .details {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Ship Ticketing System</h1>
+        <p>Explore the beautiful islands of the Philippines!</p>
+    </div>
+
+    <div class="container form-container">
+        <form id="ticketForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number" required>
+            </div>
+            <div class="form-group">
+                <label for="emergencyContact">Emergency Contact (Optional)</label>
+                <input type="tel" class="form-control" id="emergencyContact"
+                    placeholder="Enter emergency contact number">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Birthdate</label>
+                <input type="date" class="form-control" id="birthdate" required>
+            </div>
+            <div class="form-group">
+                <label for="departure">Departure Location</label>
+                <select class="form-control" id="departure" required>
+                    <option value="">Select Departure Location</option>
+                    <option value="manila">Manila</option>
+                    <option value="cebu">Cebu</option>
+                    <option value="davao">Davao</option>
+                    <option value="iloilo">Iloilo</option>
+                    <option value="bacolod">Bacolod</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <select class="form-control" id="destination" required>
+                    <option value="">Select Destination</option>
+                    <option value="boracay">Boracay</option>
+                    <option value="palawan">Palawan</option>
+                    <option value="siargao">Siargao</option>
+                    <option value="camiguin">Camiguin</option>
+                    <option value="batanes">Batanes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Travel Date</label>
+                <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="form-group">
+                <label for="class">Select Class</label>
+                <select class="form-control" id="class" required>
+                    <option value="">Select Class</option>
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="tourist">Tourist</option>
+                    <option value="cabin">Cabin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="vessel">Select Vessel</label>
+                <select class="form-control" id="vessel" required>
+                    <option value="">Select Vessel</option>
+                    <option value="2go">2GO</option>
+                    <option value="MV Star">MV Star</option>
+                    <option value="MV Starlite">MV Starlite</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="generateTicket()">Book Ticket</button>
+        </form>
+
+        <div class="details" id="ticketDetails" style="display:none;">
+            <h3>Ticket Details</h3>
+            <p id="passengerDetails"></p>
+            <p id="fareDetails"></p>
+            <p id="shipDetails"></p>
+            <div class="button-container">
+                <button class="btn btn-secondary" onclick="resetForm()">Book Another</button>
+                <button class="btn btn-info" onclick="contactAgent()">Contact Agent</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BACK BUTTON -->
+    <button title="Go back to Storage Page" id="backToMain" class="btn btn-link"
+        onclick="confirm('Back to Storage') ? window.location.href='../../../index.html' : null;"
+        style="position:fixed; bottom:0; left:0; cursor:move;"><img src="../../../assets/img/logo.png"
+            class="img-fluid rounded-circle" style="width: 30px; height: 30px;"></button>
+
+    <script src="bootstrap.min.js"></script>
+    <script>
+        function calculateAge(birthdate) {
+            const today = new Date();
+            const birthDate = new Date(birthdate);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        function generateTicket() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+            const emergencyContact = document.getElementById('emergencyContact').value;
+            const birthdate = document.getElementById('birthdate').value;
+            const departure = document.getElementById('departure').value;
+            const destination = document.getElementById('destination').value;
+            const date = document.getElementById('date').value;
+            const classType = document.getElementById('class').value;
+            const vessel = document.getElementById('vessel').value;
+
+            const today = new Date();
+            const travelDate = new Date(date);
+            if (travelDate < today) {
+                alert("Travel date cannot be in the past.");
+                return;
+            }
+
+            const age = calculateAge(birthdate);
+            if (age <= 0) {
+                alert("Age must be a positive number.");
+                return;
+            }
+
+            let fare = Math.floor(Math.random() * 1000) + 500; // Random fare between 500 and 1500
+
+            switch (classType) {
+                case "economy": fare *= 1.1; break;
+                case "business": fare *= 1.6; break;
+                case "tourist": fare *= 1.3; break;
+                case "cabin": fare *= 2.1; break;
+            }
+
+            const tax = fare * (age < 18 ? 0.002 : 0.007);
+            const gatePass = (vessel == '2go') ? 100 : 50;
+            const totalFare = fare + tax + gatePass;
+
+            document.getElementById('passengerDetails').innerHTML = `
+                Name: ${name.toUpperCase()}<br>
+                Age: ${age}<br>
+                Contact: ${contact}<br>
+                Email: ${email}<br>
+                Emergency Contact: ${emergencyContact || 'N/A'}<br>
+                From: <strong>${departure.toUpperCase()}</strong> To: <strong>${destination.toUpperCase()}</strong><br>
+                Travel Date: ${date}<br>
+                Class: ${classType.toUpperCase()}<br>
+                Vessel: ${vessel.toUpperCase()}
+            `;
+
+            document.getElementById('fareDetails').innerHTML = `
+            Fare: PHP ${fare.toFixed(2)}<br>
+            Tax: PHP ${tax.toFixed(2)}<br>
+            Pass: PHP ${gatePass}<br>
+            Total Fare: <strong>PHP ${totalFare.toFixed(2)}</strong>
+            `;
+            document.getElementById('ticketDetails').style.display = 'block';
+            window.scrollTo(0, document.getElementById('ticketDetails').offsetTop);
+        }
+
+        function resetForm() {
+            document.getElementById('ticketForm').reset();
+            document.getElementById('ticketDetails').style.display = 'none';
+        }
+
+        function contactAgent() {
+            alert("Please contact our agent at support@shipticketing.com");
+        }
+    </script>
+</body>
+
+</html>
